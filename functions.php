@@ -38,6 +38,15 @@ function setPostViews($postID) {
     }
 }
 
+acf_add_options_page(array(
+	'page_title' 	=> 'Configuração global',
+	'menu_title'	=> 'Configuração global',
+	'menu_slug' 	=> 'configuracao-global',
+	'capability'	=> 'edit_posts',
+	'icon_url' => 'dashicons-admin-site-alt2',
+	'redirect'		=> false
+));
+
 function getPostViews($postID) {
     $countKey = 'post_views_count';
     $count = get_post_meta($postID, $countKey, true);
