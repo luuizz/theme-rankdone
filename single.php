@@ -76,9 +76,46 @@ setPostViews(get_the_ID());
         <?php get_template_part('template-parts/components/sidebar-topics') ?>
         <div class="right-content">
             <div class="content">
-                <?php the_content(); ?>
-            </div>
+            <?php
+            $content = get_the_content();
+            if (!empty($content)) {
+                $disable_image_end = get_field('disable_image_end');
+                $dom = new DOMDocument();
+                libxml_use_internal_errors(true); 
+                $dom->loadHTML(mb_convert_encoding($content, 'HTML-ENTITIES', 'UTF-8'));
+                libxml_clear_errors();
+                $body = $dom->getElementsByTagName('body')->item(0);
+                if ($body) {
+                    $image_id = get_field('default_image', 'option');
+                    $image_url = wp_get_attachment_image_url($image_id, 'full');
+                    if ($image_url && !$disable_image_end) {
+                        $image_alt = get_post_meta($image_id, '_wp_attachment_image_alt', true);
+                        $image_alt = $image_alt ? $image_alt : 'Imagem Inserida';
+                        $img = $dom->createElement('img');
+                        $img->setAttribute('src', $image_url);
+                        $img->setAttribute('alt', $image_alt);
+                        $img->setAttribute('class', 'acf-image');
 
+                        $a = $dom->createElement('a');
+                        $link_url = get_field('image_link', 'option');
+                        if ($link_url) {
+                            $a->setAttribute('href', $link_url);
+                            $a->appendChild($img);
+                            $body->appendChild($a);
+                        } else {
+                            $body->appendChild($img);
+                        }
+                    }
+                    $new_content = $dom->saveHTML($body);
+                    echo $new_content;
+                } else {
+                    echo $content;
+                }
+            } else {
+                echo '<p>Conteúdo não disponível.</p>';
+            }
+        ?>
+        </div>
         <?php get_template_part('template-parts/components/social-share') ?>
         </div>
     </div>
