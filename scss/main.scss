@@ -1,0 +1,23 @@
+// Global
+
+@import 'block-editor';
+@import 'variables';
+@import 'mixins';
+@import 'fonts';
+@import 'headings';
+@import 'patterns';
+@import 'reset';
+@import 'animations';
+@import 'grid';
+@import 'header';
+@import 'footer';
+
+
+// Páginas - Se houver
+
+@import 'home';
+@import 'post';
+@import 'author';
+@import 'search-results';
+@import 'categories';
+@import '404';

@@ -1,0 +1,175 @@
+footer {
+  padding-top: 6.4rem;
+  background-color: var(--gray-900);
+  .container {
+    display: flex;
+    flex-direction: column;
+    gap: 6.4rem;
+    .top {
+      @include flexCenterJustify;
+      padding-bottom: 4rem;
+      border-bottom: 1px solid var(--gray-700);
+      .logo-footer {
+        width: 100%;
+        max-width: 20rem;
+      }
+      .socials {
+        display: flex;
+        gap: 3rem;
+        span {
+          font-size: 1.5rem;
+          color: var(--gray-300);
+        }
+        ul {
+          display: flex;
+          gap: 3rem;
+        }
+      }
+    }
+    .main {
+      @include flex(row, flex-start, space-between);
+      .left {
+        display: flex;
+        gap: 8rem;
+        .item-nav {
+          h6 {
+            color: var(--white);
+            font-size: 1.5rem;
+            margin-bottom: 3.2rem;
+          }
+          ul {
+            display: flex;
+            flex-direction: column;
+            gap: 2.4rem;
+            li {
+              a {
+                color: rgba(255, 255, 255, 0.67);
+                font-weight: normal;
+                font-size: 1.5rem;
+                transition: color 0.3s ease;
+                &:hover {
+                  color: var(--white);
+                }
+              }
+            }
+          }
+        }
+      }
+      .btn-contact {
+        background: linear-gradient(267.34deg, #9354f0 -1.52%, #662fb7 100%);
+        border-radius: 8px;
+        padding: 1.7rem 4.4rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1.6rem;
+        transition: all 0.3s ease;
+        &:hover {
+          box-shadow: 0 0 1.5rem 0.1rem var(--purple-500);
+          animation: 3.4s cubic-bezier(0.2, 0.5, 0.9, 0.6) 2s infinite normal
+            none running bgs;
+          background-image: linear-gradient(
+            45deg,
+            rgb(147, 84, 240, 1),
+            rgb(134, 76, 218, 1),
+            rgb(147, 84, 240, 1),
+            rgb(134, 76, 218, 1)
+          );
+          background-size: 400% 200%;
+        }
+        strong {
+          font-size: 1.4rem;
+          color: var(--white);
+          font-family: var(--font-title);
+          line-height: 150%;
+        }
+      }
+    }
+    .bottom {
+      @include flexCenterJustify;
+      padding: 4rem 0;
+      border-top: 1px solid var(--gray-700);
+      p,
+      a {
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 1.4rem;
+        a {
+          transition: color 0.3s ease;
+          &:hover {
+            color: var(--white);
+          }
+        }
+      }
+    }
+  }
+  @include responsive("laptopMd") {
+    padding-top: 5.6rem;
+    .container {
+      .main {
+        .left {
+          gap: 4rem;
+        }
+      }
+    }
+  }
+  @include responsive("tablet") {
+    .container {
+      .main {
+        .left {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+    }
+  }
+  @include responsive("mobile") {
+    .container {
+      gap: 4rem;
+      .top {
+        flex-direction: column;
+        gap: 4rem;
+        .logo-footer {
+          max-width: 20rem;
+          img {
+            width: 100%;
+          }
+        }
+      }
+      .main {
+        flex-direction: column-reverse;
+        gap: 4rem;
+        .left {
+          max-width: 100%;
+          width: 100%;
+        }
+        .btn-contact {
+          width: 100%;
+          strong {
+            font-size: 1.6rem;
+          }
+        }
+      }
+      .bottom {
+        flex-direction: column;
+        gap: 2.4rem;
+        p,
+        a {
+          text-align: center;
+        }
+      }
+    }
+  }
+  @include responsive("mobileSm") {
+    padding-top: 4rem;
+    .container {
+      .top {
+        .socials {
+          flex-direction: column;
+          span {
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
+}

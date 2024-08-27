@@ -1,0 +1,152 @@
+.s-hero-author {
+  position: relative;
+  padding-top: 7.2rem;
+  background-color: var(--white);
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: var(--black);
+    width: 100%;
+    height: 33.7rem;
+    z-index: 0;
+  }
+  .container {
+    position: relative;
+    z-index: 2;
+    .box-main {
+      @include flex-start;
+      gap: 6.4rem;
+      padding: 4rem;
+      background-color: var(--white);
+      border-radius: 1.6rem;
+      box-shadow: 0px 24px 40px 0px rgba(16, 12, 28, 0.06);
+      .image-author {
+        width: 21.5rem;
+        height: 21.5rem;
+        border-radius: 20rem;
+        overflow: hidden;
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+
+      .infos {
+        @include flex-start;
+        flex: 1;
+        gap: 3.2rem;
+        .title {
+          width: 100%;
+          max-width: 100%;
+        }
+        h1 {
+          font-size: 3.2rem;
+          margin-bottom: 0.8rem;
+        }
+        .count-posts {
+          padding: 0.4rem;
+          border-radius: 0.4rem;
+          background-color: var(--purple-500);
+          color: var(--white);
+          line-height: 120%;
+          font-size: 1.2rem;
+          font-family: var(--font-title);
+          font-weight: bold;
+          margin-bottom: 3.2rem;
+          display: inline-block;
+        }
+        h6 {
+          color: var(--gray-800);
+          font-size: 1.8rem;
+          font-weight: normal;
+          margin-bottom: 1.8rem;
+        }
+        .tags {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 0.8rem;
+        }
+      }
+      p {
+        color: var(--gray-700);
+        font-size: 1.8rem;
+        width: 100%;
+        max-width: 49.8rem;
+        height: 30rem;
+        overflow-y: scroll;
+        padding-right: 0.8rem;
+        &::-webkit-scrollbar {
+          background-color: var(--purple-100);
+          width: 0.5rem;
+          height: 0.5rem;
+        }
+        &::-webkit-scrollbar-thumb {
+          background-color: var(--purple-500);
+          border-radius: 0.4rem;
+        }
+        &::-webkit-scrollbar-track {
+          border-radius: 0.4rem;
+        }
+      }
+    }
+  }
+  @include responsive("laptop") {
+    padding-top: 6rem;
+    &::before {
+      height: 27.2rem;
+    }
+    .container {
+      .box-main {
+        gap: 3.2rem;
+      }
+    }
+  }
+  @include responsive("tablet") {
+    .container {
+      .box-main {
+        padding: 3.2rem;
+        .infos {
+          flex-direction: column;
+          gap: 2.4rem;
+        }
+      }
+    }
+  }
+  @include responsive("mobile") {
+    padding-top: 5.6rem;
+    .container {
+      .box-main {
+        flex-direction: column;
+        .image-author {
+          margin: 0 auto;
+          width: 15rem;
+          height: 15rem;
+        }
+        .infos {
+          .title {
+            text-align: center;
+            .tags {
+              justify-content: center;
+            }
+          }
+          .count-posts {
+            margin-bottom: 2.4rem;
+          }
+          p {
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
+}
+
+.s-my-articles {
+  padding: 6.4rem 0;
+  @include responsive("mobile") {
+    padding: 5.6rem 0;
+  }
+}

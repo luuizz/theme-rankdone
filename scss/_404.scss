@@ -1,0 +1,51 @@
+.s-404 {
+    padding: 16rem 0;
+    .container {
+        display: grid;
+        grid-template-columns: 1fr 66.5rem;
+        align-items: center;
+        gap: 13.87rem;
+        .left {
+            h1 {
+                margin-bottom: 3.2rem;
+                font-weight: normal;
+                span {
+                    font-weight: bold;
+                    color: var(--purple-600);
+                }
+            }
+            p {
+                font-weight: normal;
+                color: var(--gray-700);
+                margin-bottom: 4rem;
+            }
+        }
+    }
+    @include responsive('laptopMd') {
+        .container {
+            grid-template-columns: 1fr 54.5rem;
+        }
+    }
+    @include responsive('tablet') {
+        padding: 12rem 0;
+        .container {
+            display: flex;
+            flex-direction: column-reverse;
+            gap: 3.2rem;
+            text-align: center;
+            .left {
+                width: 100%;
+                max-width: 720px;
+            }
+        }
+    }
+    @include responsive('mobile') {
+        padding: 9rem 0;
+        .container {
+            gap: 2.4rem;
+            .left {
+                max-width: 100%;
+            }
+        }
+    }
+}

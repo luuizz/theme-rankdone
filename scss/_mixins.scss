@@ -1,0 +1,45 @@
+@mixin flex($direction, $align, $justify) {
+    display: flex;
+    flex-direction: $direction;
+    align-items: $align;
+    justify-content: $justify;
+}
+
+@mixin flex-center {
+    display: flex;
+    align-items: center;
+}
+
+@mixin flex-start {
+    display: flex;
+    align-items: flex-start;
+}
+
+@mixin flex-total-center {
+    @include flex-center;
+    justify-content: center;
+}
+
+@mixin flexCenterJustify {
+    @include flex-center;
+    justify-content: space-between;
+}
+
+$breakpoints: (
+    'laptop': 1200px,
+    'laptopMd': 1100px,
+    'tablet': 991px,
+    'tabletMd': 768px,
+    'mobile': 560px,
+    'mobileSm': 460px,
+);
+
+@mixin responsive($breakpoints-name) {
+    @if map-has-key($breakpoints, $breakpoints-name ) {
+        @media (max-width: map-get($breakpoints, $breakpoints-name)) {
+            @content;
+        }
+    } @else {
+        @warn "Breakpoint que você definiu não existe"
+    }
+}

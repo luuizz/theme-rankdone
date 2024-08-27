@@ -1,0 +1,154 @@
+header {
+  padding: 2.2rem 0;
+  border-bottom: 1px solid var(--gray-100);
+  background-color: var(--white);
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 2025;
+  .container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    .custom-logo-link {
+      width: 100%;
+      max-width: 15.3rem;
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+    nav {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      flex: 1;
+      max-width: 90.2rem;
+      ul {
+        display: flex;
+        gap: 1.6rem;
+        li {
+          a {
+            color: rgb(10, 11, 13, 0.7);
+            font-size: 1.4rem;
+            font-family: var(--font-title);
+            font-weight: 400;
+            transition: all 0.3s ease;
+            &::after {
+              content: "";
+              display: block;
+              width: 0;
+              height: 0.1rem;
+              background-color: var(--purple-500);
+              transition: all ease 0.5s;
+              position: relative;
+              top: 0.5rem;
+            }
+            &:hover {
+              color: var(--purple-500);
+              &::after {
+                width: 100%;
+              }
+            }
+          }
+        }
+      }
+      .hamburger {
+        display: none;
+        .hamburger-inner,
+        .hamburger-inner::before,
+        .hamburger-inner::after {
+          width: 3.2rem;
+          height: 0.2rem;
+        }
+      }
+    }
+  }
+  .menu-mobile {
+    position: absolute;
+    top: 7.1rem;
+    height: calc(100vh - 7.1rem);
+    width: 100%;
+    background-color: var(--white);
+    transform: translateY(100%);
+    opacity: 0;
+    transition: all 0.3s ease;
+    padding: 4rem 1.5rem;
+    ul {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 4rem;
+      li {
+        a {
+          font-size: 2rem;
+          padding: 2rem 0;
+        }
+      }
+    }
+    .search {
+      max-width: 100%;
+      height: 6rem;
+      input {
+        font-size: 1.6rem;
+        &::placeholder {
+          font-size: 1.6rem;
+        }
+      }
+      button {
+        height: 6rem;
+        width: 6rem;
+      }
+    }
+  }
+  @include responsive("laptop") {
+    .container {
+      nav {
+        max-width: 82%;
+      }
+    }
+  }
+  @include responsive("tablet") {
+    padding: 1.5rem 0;
+    .container {
+      nav {
+        max-width: 100%;
+        justify-content: flex-end;
+        ul {
+          display: none;
+        }
+        .hamburger {
+          display: block;
+          margin-left: 2rem;
+        }
+      }
+    }
+  }
+  @include responsive("mobile") {
+    padding: 2.2rem 0;
+    .container {
+      .logo {
+        max-width: 18rem;
+      }
+      nav {
+        .search {
+          display: none;
+        }
+        .hamburger {
+          margin-left: 0;
+          padding: 0;
+        }
+      }
+    }
+  }
+}
+
+.menu-opened {
+  header {
+    .menu-mobile {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+}

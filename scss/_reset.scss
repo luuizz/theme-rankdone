@@ -1,0 +1,53 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    outline: none;
+    list-style-type: none;
+    font-family: 'Inter', sans-serif;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+button {
+    border: 0;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+body {
+    &::-webkit-scrollbar {
+        background-color: var(--purple-100);
+        width: 0.5rem;
+        height: 0.5rem;
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: var(--purple-500);
+        border-radius: 0.4rem;
+    }
+    &::-webkit-scrollbar-track {
+        border-radius: 0.4rem;
+    }
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    display: inline-block;
+}
+
+::selection {
+    background-color: var(--purple-500);
+    color: var(--white);
+    -webkit-text-fill-color: var(--white);
+}
+
+.none {
+    display: none;
+}
