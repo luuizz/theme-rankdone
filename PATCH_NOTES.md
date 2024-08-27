@@ -6,6 +6,7 @@
 
 - **Popup de saída para a página Home**: Criado uma função que ativa o popup de saída, juntamente com o estilo desse popup;
 - **Seção antecedente a Hero**: Criado a seção que antecede a hero dos posts.
+- **ACF**: Adicionado campos e lógica para controlar a imagem exibida no final do post.
 
 ### Removido
 
